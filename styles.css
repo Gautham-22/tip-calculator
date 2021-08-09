@@ -44,7 +44,9 @@ main {
 }
 
 label {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: 0.4rem;
     font-weight: bold;
     color: hsl(184, 14%, 46%);
@@ -164,3 +166,19 @@ label {
     cursor: pointer;
     background: hsl(172, 67%, 70%);
 }
+
+#reset-btn.disabled, #reset-btn.disabled:hover {
+    opacity: 0.4;
+    cursor: initial;
+    background: hsl(172, 67%, 45%);
+    opacity: 0.4;
+}
+
+#people.error, #bill.error, #custom-tip-percent.error {
+    border: 2px solid rgba(207, 96, 5,0.7);
+}
+
+#bill-error-msg, #tip-error-msg, #people-error-msg {
+    color: rgb(207, 96, 5);
+    opacity: 0.7;
+}   

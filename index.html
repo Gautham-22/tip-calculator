@@ -15,14 +15,20 @@
     <main>
       <div class="wrapper">
         <div class="inputs">
-          <label for="bill">Bill</label>
+          <label for="bill">
+            <span>Bill</span>
+            <span id="bill-error-msg"></span>
+          </label>
           <div class="input">
             <img src="./images/icon-dollar.svg" alt="dollar">
             <input type="text" id="bill" placeholder="0">
           </div>
         </div>
         <div class="inputs">
-          <label for="options">Select Tip %</label>
+          <label for="options">
+            <span>Select Tip %</span>
+            <span id="tip-error-msg"></span>
+          </label>
           <div id="options">
             <button class="tip-percent">5%</button>
             <button class="tip-percent">10%</button>
@@ -33,7 +39,10 @@
           </div>
         </div>
         <div class="inputs">
-          <label for="people">Number of People</label>
+          <label for="people">
+            <span>Number of People</span>
+            <span id="people-error-msg"></span>
+          </label>
           <div class="input">
             <img src="./images/icon-person.svg" alt="person">
             <input type="text" id="people" placeholder="0">
@@ -62,7 +71,7 @@
           </div>
         </div>
         <div class="col">
-          <button type="reset" id="reset-btn">Reset</button>
+          <button type="reset" id="reset-btn" class="disabled">Reset</button>
         </div>
       </div>
     </main>

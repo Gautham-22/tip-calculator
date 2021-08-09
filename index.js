@@ -57,6 +57,11 @@ function displayOutput() {
 // function resetting everything to initial values
 function initialValues() {
     removeActiveClasses();
+    // removing errors
+    removeError("bill","bill-error-msg");
+    removeError("custom-tip-percent","tip-error-msg");
+    removeError("people","people-error-msg");
+    document.getElementById("reset-btn").classList.add("disabled");  // restoring disability of reset-btn
     document.getElementById("bill").value = "";
     document.getElementById("people").value = "";
     document.getElementById("custom-tip-percent").value = "";
@@ -65,9 +70,30 @@ function initialValues() {
     active = null;
 }
 
+// function for adding errors
+function addError(place,label,msg) {
+    document.getElementById(place).classList.add("error");
+    document.getElementById(label).innerHTML = msg;
+}
+
+// function for removing errors
+function removeError(place,label) {
+    document.getElementById(place).classList.remove("error");
+    document.getElementById(label).innerHTML = "";
+}
+
 // event listeners for tip percent buttons
 for(let i=0; i < percentButtons.length; i++) {
-    percentButtons[i].addEventListener("click",(event) => {
+    percentButtons[i].addEventListener("click",() => {
+        // remove disability of reset-btn and error in customTip when tip-percent buttons are clicked
+        if(i != percentButtons.length-1) { 
+            document.getElementById("reset-btn").classList.remove("disabled"); 
+            removeError("custom-tip-percent","tip-error-msg"); 
+        } else {  // if the custom tip button is active and custom value is invalid
+            if(percentButtons[i].value && !percentButtons[i].value.match(/^[0-9]+$/) && !percentButtons[i].value.match(/^[0-9]+\.[0-9]+$/)) {
+                addError("custom-tip-percent","tip-error-msg","Invalid tip %");
+            }
+        }
         removeActiveClasses();
         active = i;   // stores index of active button
         percentButtons[i].classList.add("active");
@@ -79,35 +105,49 @@ for(let i=0; i < percentButtons.length; i++) {
 document.getElementById("custom-tip-percent").addEventListener("input",(event) => {
     let tipPercent = event.target.value;
     if(tipPercent) {
-        if(tipPercent.match(/^[0-9]+$/)) {
+        document.getElementById("reset-btn").classList.remove("disabled"); // rmoving disability of reset-btn if there is a value
+        if(tipPercent.match(/^[0-9]+$/) || tipPercent.match(/^[0-9]+\.[0-9]+$/)) {
             tipPercents["5"] = Number(tipPercent);
             displayOutput();
+            removeError("custom-tip-percent","tip-error-msg");  // removing errors since input is valid
         } else {
-            alert("Enter valid tip percent!")
+            addError("custom-tip-percent","tip-error-msg","Invalid tip %");
         }
+    } else {
+        removeError("custom-tip-percent","tip-error-msg");  // removing errors since input has no value
     }
 })
-document.getElementById("bill").addEventListener("change",(event) => {
+document.getElementById("bill").addEventListener("input",(event) => {
     let bill = event.target.value;
     if(bill) {
+        document.getElementById("reset-btn").classList.remove("disabled"); 
         if( bill.match(/^[0-9]+$/) || bill.match(/^[0-9]+\.[0-9]+$/) ) {
             displayOutput();
+            removeError("bill","bill-error-msg");
         } else {
-            alert("Enter valid bill!")
+            addError("bill","bill-error-msg","Invalid bill");
         }
+    } else {
+        removeError("bill","bill-error-msg");
     }
 })
 document.getElementById("people").addEventListener("input",(event) => {
     if(event.target.value == "0") {
-        alert("Cant be zero")
+        document.getElementById("reset-btn").classList.remove("disabled"); // removing disability of reset-btn if value is 0
+        addError("people","people-error-msg","Can't be zero");
+        return;
     }
     let people = event.target.value;
     if(people) {
+        document.getElementById("reset-btn").classList.remove("disabled"); 
         if(people.match(/^[0-9]+$/)) {
             displayOutput();
+            removeError("people","people-error-msg");
         } else {
-            alert("Enter valid no. of people!")
+            addError("people","people-error-msg","Invalid people");
         }
+    } else {
+        removeError("people","people-error-msg");
     }
 })
 
