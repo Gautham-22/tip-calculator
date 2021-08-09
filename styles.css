@@ -5,6 +5,8 @@
 }
 
 body {
+    min-height: 100vh;
+    position: relative;
     background-color: hsl(185, 41%, 84%);
     font-family: 'Space Mono', monospace;
 }
@@ -182,3 +184,47 @@ label {
     color: rgb(207, 96, 5);
     opacity: 0.7;
 }   
+
+@media (min-width: 750px) {
+    #logo {
+        margin: 0;
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%,-5%);
+    }
+    main {
+        width: min(85%,900px);
+        margin: 0;
+        padding: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    main .wrapper {
+        width: 100%;
+    }
+    main .wrapper:first-child {
+        width: 120%;
+    }
+    main .wrapper:last-child {
+        align-self: stretch;
+        margin: 0;
+        margin-left: 2.3rem;
+    }
+}
+
+@media (min-width: 995px) {
+    #logo {
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%,-10%);
+    }
+    #options {
+        justify-content: space-between;
+    }
+}
