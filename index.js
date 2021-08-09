@@ -49,8 +49,8 @@ function displayOutput() {
     inputs = checkInputs();
     if(inputs.ready) {
         let answer = calculateAnswer(...inputs.values);
-        document.getElementById("tip-amount").innerHTML = answer.tip;
-        document.getElementById("total-amount").innerHTML = answer.total;
+        document.getElementById("tip-amount").innerHTML = "$" + answer.tip;
+        document.getElementById("total-amount").innerHTML = "$" + answer.total;
     }
 }
 
@@ -60,8 +60,8 @@ function initialValues() {
     document.getElementById("bill").value = "";
     document.getElementById("people").value = "";
     document.getElementById("custom-tip-percent").value = "";
-    document.getElementById("tip-amount").innerHTML = "";
-    document.getElementById("total-amount").innerHTML = "";
+    document.getElementById("tip-amount").innerHTML = "$0.00";
+    document.getElementById("total-amount").innerHTML = "$0.00";
     active = null;
 }
 

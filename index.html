@@ -5,46 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <title>Frontend Mentor | Tip calculator app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-
+    <img src="./images/logo.svg" alt="logo" id="logo">
     <main>
-      <div>
-        <label for="bill">Bill</label>
-        <input type="text" id="bill">
-      </div>
-      <div>
-        <label for="options">Select Tip %</label>
-        <div id="options">
-          <button class="tip-percent">5%</button>
-          <button class="tip-percent">10%</button>
-          <button class="tip-percent">15%</button>
-          <button class="tip-percent">25%</button>
-          <button class="tip-percent">50%</button>
-          <input class="tip-percent" id="custom-tip-percent" type="text" placeholder="Custom">
-        </div>
-      </div>
-      <div>
-        <label for="people">Number of People</label>
-        <input type="text" id="people">
-      </div>
-      <div>
-        <div id="tip">
-          Tip Amount
-          / person
-          <div id="tip-amount">
-
+      <div class="wrapper">
+        <div class="inputs">
+          <label for="bill">Bill</label>
+          <div class="input">
+            <img src="./images/icon-dollar.svg" alt="dollar">
+            <input type="text" id="bill" placeholder="0">
           </div>
         </div>
-        <div id="total">
-          Total
-          / person
-          <div id="total-amount">
-
-          </div>          
+        <div class="inputs">
+          <label for="options">Select Tip %</label>
+          <div id="options">
+            <button class="tip-percent">5%</button>
+            <button class="tip-percent">10%</button>
+            <button class="tip-percent">15%</button>
+            <button class="tip-percent">25%</button>
+            <button class="tip-percent">50%</button>
+            <input class="tip-percent" id="custom-tip-percent" type="text" placeholder="Custom">
+          </div>
         </div>
-        <button type="reset" id="reset-btn">Reset</button>
+        <div class="inputs">
+          <label for="people">Number of People</label>
+          <div class="input">
+            <img src="./images/icon-person.svg" alt="person">
+            <input type="text" id="people" placeholder="0">
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="col">
+          <div id="tip">
+            <div class="label">
+              Tip Amount
+              <span>/ person</span>
+            </div>
+            <div id="tip-amount">
+              $0.00
+            </div>
+          </div>
+          <div id="total">
+            <div class="label">
+              Total
+              <span>/ person</span>
+            </div>
+            <div id="total-amount">
+              $0.00
+            </div>          
+          </div>
+        </div>
+        <div class="col">
+          <button type="reset" id="reset-btn">Reset</button>
+        </div>
       </div>
     </main>
     <script src="./index.js"></script>

@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(185, 41%, 84%);
+    font-family: 'Space Mono', monospace;
+}
+
+button, input {
+    width: 100%;
+    font-family: 'Space Mono', monospace;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+/* splitter-logo */
+#logo {
+    display: block;
+    margin: 2rem auto;
+}
+
+/* main content in white color */
+main {
+    width: min(100%,400px);
+    margin: 0 auto;
+    padding: 1.5em;
+    border-radius: 20px;
+    background: white;
+}
+
+/* answer-section */
+.wrapper:last-child {
+    margin: 1.4rem 0rem 0.5rem;
+}
+
+/* tip percent input section */
+.wrapper .inputs:nth-child(even) {
+    margin: 1.2rem 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+    color: hsl(184, 14%, 46%);
+}
+
+/* wrapper for input and icons(person and dollar) */
+.input {
+    position: relative;
+}
+
+/* input icons */
+.input img {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-5%,-50%);
+}
+
+/* custom inputs */
+#people, #bill, #custom-tip-percent {
+    padding: 0.35em 1em 0.35em 1.5em;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: right;
+    border: 2px solid hsl(189, 41%, 97%);
+    background: hsl(189, 41%, 97%);
+    color: hsl(183, 100%, 15%);
+}
+
+#people:focus, #bill:focus, #custom-tip-percent:focus, #custom-tip-percent.active {
+    border: 2px solid hsl(172, 67%, 45%);
+}
+
+#people::placeholder, #bill::placeholder {
+    color: hsl(184, 14%, 56%);
+} 
+
+#custom-tip-percent::placeholder {
+    color: hsl(184, 14%,6%);
+}
+
+#custom-tip-percent {
+    padding: 0.4em 0.5em;
+}
+
+/* tip percent options grid */
+#options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,130px);
+    justify-content: space-evenly;
+}
+
+.tip-percent {
+    margin: 0.5rem 0 0.4rem;
+    padding: 0.4em 0.5em;
+    background: hsl(183, 100%, 15%);
+    font-size: 1.3rem;
+    color: white;
+}
+
+.tip-percent:hover {
+    cursor: pointer;
+    background: hsl(185, 41%, 84%);
+    color: hsl(183, 100%, 15%);
+}
+
+#custom-tip-percent:hover {
+    cursor: initial;
+}
+
+/* active tip percent selected by user */
+.tip-percent.active {
+    background: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}
+
+/* answers-section */
+.wrapper:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em 1.4em;
+    border-radius: 10px;
+    background: hsl(183, 100%, 15%);
+    color: white;
+}
+
+#tip, #total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.label span {
+    display: block;
+    font-size: 0.8rem;
+    color: hsl(184, 14%, 56%);
+}
+
+#tip-amount, #total-amount  {
+    font-size: 2.1rem;
+    color: hsl(172, 67%, 45%);
+}
+
+#reset-btn {
+    margin: 0.7em 0;
+    padding: 0.3em;
+    font-size: 1.2rem;
+    color: hsl(183, 100%, 15%);
+    background: hsl(172, 67%, 45%);
+}
+
+#reset-btn:hover {
+    cursor: pointer;
+    background: hsl(172, 67%, 70%);
+}
